@@ -1,0 +1,40 @@
+{% extends "network/layout.html" %}
+
+{% load static %}
+ {% block following %}
+
+    <div class="container-fluid">
+    {% for tweet in data %}
+        <div class="display-tweet">
+            <span class="far fa-user fa-2x tweet-icon"></span>
+            <div class="tweet-content">
+                <div class="d-flex align-items-center bd-highlight mb-3 subheader-flex" >
+                    <a class="anchor" href="">
+                        <h6 style="margin: 0px; padding:0px" >{{tweet.username}}</h6>
+                    </a>
+                    <nobr><p class="no-borders tweet-date">{{tweet.datetime}}</p> </nobr>
+                    
+                    
+                </div>
+                                            
+                <p>{{tweet.content}}</p>
+            </div>
+                                        
+            <div class="d-flex icons-section">
+                <i class="far fa-heart"></i>
+                <div>{{tweet.likes}}</div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+
+
+
+
+  <h1>  </h1>
+  <p>  </p>
+ 
+
+{% comment %} {{data}} {% endcomment %}
+<script src="{% static 'network/followingvw.js' %}"> </script>
+{% endblock %}

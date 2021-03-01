@@ -1,0 +1,104 @@
+{% extends "network/layout.html" %}
+
+{% load static %}
+{% block profile %}
+
+<div class="container-fluid">
+    <div class="main-body">
+        <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img width="200px" src="{{my_user.photo}}" alt="">
+                            <div class="mt-3">
+                                <h4 id="profile_username">{{my_user.username}}</h4>
+                                <p class="text-secondary mb-1"><b>Followers: </b>{{my_user.follower|length}}</p>
+                                <p class="text-muted font-size-sm"><b>Following: </b>{{my_user.following|length}}</p>
+                                {% if my_user_str != my_user.username %}
+                                    {% if follow %}
+                                        <button id="btn-follow" class="btn btn-primary">Unfollow</button>
+                                    {% else %}
+                                        <button id="btn-follow" class="btn btn-outline-primary">Follow</button>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 details">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="mb-0">Country</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">{{my_user.country}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="mb-0">City</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">{{my_user.city}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="mb-0">Display name</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">{{my_user.display_name}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="mb-0">Date of birth</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">{{my_user.date_of_birth}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="mb-0">Email</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">{{my_user.email}}</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="mb-0">Mobile Phone</div>
+                            </div>
+                            <div class="col-sm-9 text-secondary">{{my_user.mobile_phone}}</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    {% for tweet in tweets %}
+        <div class="display-tweet">
+            <span class="far fa-my_user fa-2x tweet-icon"></span>
+            <div class="tweet-content">
+                <div class="d-flex align-items-center bd-highlight mb-3 subheader-flex" >
+                    <h6 style="margin: 0px; padding:0px" >{{tweet.username}}</h6>
+                    <p  style="margin: 0px; padding:0px 7px; font-size:0.7rem; opacity:0.6;">{{tweet.datetime}}</p>
+                    <p class="pk">{{tweet.pk}}</p>
+                    <button  class="btn btn-secondary btn-edit" type="button">...</button>
+                </div>
+                
+                                            
+                <p>{{tweet.content}}</p>
+            </div>
+                                        
+            <div class="d-flex icons-section">
+                <i class="far fa-heart"></i>
+                <div>{{tweet.likes}}</div>
+            </div>
+        </div>
+      {% endfor %}
+    </div>
+
+<script src="{% static 'network/profile_page.js' %}"></script>
+<link rel="stylesheet" href="{% static 'network/profile_style.css' %}">
+
+{% endblock %}

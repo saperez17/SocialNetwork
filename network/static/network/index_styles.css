@@ -1,0 +1,224 @@
+* {
+    box-sizing: border-box !important;
+
+  }
+/* General */
+
+h6{
+    font-family: "Montserrat-Bold";
+}
+
+html, body{
+    height: 100%;
+ }
+
+
+ /* Subheader */
+ .subheader-container{
+     padding-left: 20px;
+     background-color: #393E46 ;
+ }
+
+ .subheader-flex{
+     height: 100%;
+     /* justify-content: center; */
+     /* align-items:; */
+     /* justify-content: center ; */
+ }
+ .subheader-row a{
+     opacity: 0.7;
+ }
+ .subheader-row{
+     color: #fff;
+     padding-left: 0px;
+     height: 60px;
+ }
+
+ 
+ /* Left panel */
+
+ a{
+     text-decoration: none;
+     color: #fff;
+ }
+ a:hover{
+     color: #eeeeee;
+ }
+
+.body-container{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+} 
+  .content {
+    flex-grow: 3;
+   }  
+   
+.index-container{
+    height: 100%;
+}
+
+.row{
+    min-height: 100%;
+    /* height:auto !important; /* cross-browser */
+    /* height: 100%; cross-browser  */
+
+} 
+
+
+/* Navbar */
+.navbar{
+    background-color: #222831;
+    padding-left: 20px;
+    height: 9%;
+}
+.navbar .nav-item a{
+    font-family: "Ubuntu";
+    color: rgb(255, 255, 255);
+}
+.navbar .navbar-brand{
+    font-family: "Montserrat-Black";
+    font-size: 1.5rem;
+    color: rgb(255, 255, 255);
+}
+
+
+
+/* Left Panel */
+.left-panel{
+    display: flex;
+    flex-direction: column;
+    /* min-height: 100%; */
+    background-color: #FFD369;
+    color: #fff;
+    padding: 10px 10px;
+    /* box-shadow: 3px 0px 5px 1px #393e46 ; */
+    
+    /* justify-content: flex-start; */
+}
+.top-options-div{
+    margin: 2px;
+}
+.top-options-div > span{
+    margin-left: 5px ;
+}
+.top-options-div > i{
+    display:inline-block; 
+    color:#fff" 
+}
+.opt-txt{
+    display: inline-block;
+    font-family: 'Fredoka One', cursive;
+}
+.user-settings{
+    display: flex;
+    flex-grow: 2;
+    align-items: flex-end;
+    
+}
+.bottom-options{
+    position:relative;
+    margin: 0;
+    top: auto;
+}
+
+
+/* MIDDLE COLUMN */
+/* Tweets */
+.tweets-container{
+    /* background-color: #f4f9f9; */
+    padding: 10px 0px;
+}
+
+.tweet-input{
+    padding-left: 15%;
+    padding-right: 15%;
+    
+}
+.display-tweet{
+    /* border: 1px solid rgba(128, 128, 128, 0.226); */
+    /* border-radius: 10px; */
+    margin-bottom: 10px;
+    /* background-color: #f4f9f9 ; */
+    background-color: #fff;
+   
+}
+.display-tweet:hover{
+    background-color: #f4f9f9 ;
+}
+
+.no-borders{
+    margin: 0px; 
+    padding: 0px;
+}
+.tweet-date{
+    padding:0px 7px;
+    font-size:0.7rem;
+    opacity:0.7;
+}
+.anchor{
+    color: black;
+    text-decoration: none;
+}
+.anchor:hover{
+    /* color: yellow; */
+    color: black;
+    text-decoration: underline;
+}
+.tweet-user{
+    font-size: 1.3rem;
+    width: 55px;
+}
+.fa-heart{
+    cursor: pointer;
+    /* color: red; */
+}
+.btn-edit{
+   margin-left: 70%;
+}
+.pk{
+    visibility: hidden;
+}
+.tweet-icon{
+    float: left;
+    padding: 5px
+}
+.tweet-content{
+    display: flex;
+    flex-direction:column;
+    justify-content:flex-start;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+
+}
+
+.tweet-content > h6{
+    
+    font-family: "Montserrat-black";
+    font-size: 1rem;
+}
+
+.tweet-content > p{
+    font-family: "Segoe UI";
+    color: rgb(102, 101, 101);
+    font-size:15px;
+    font-weight: 300;
+    line-height: 1.3125;
+}
+
+.icons-section{
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* padding-bottom: 5px; */
+}
+
+
+
+

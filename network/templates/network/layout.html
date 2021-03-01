@@ -1,0 +1,155 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"> 
+        <title>{% block title %}Social Network{% endblock %}</title>
+         <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,900;1,400&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+       
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+        <!-- Font Awesome  -->
+        <script src="https://kit.fontawesome.com/5daef69c7f.js" crossorigin="anonymous"></script>
+
+       
+        
+        <!-- Consider using Trianglify -->
+
+        <!-- Custom css -->
+        <link href="{% static 'network/index_styles.css' %}" rel="stylesheet" type="text/css">
+
+         <!-- JQuery -->
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       
+    </head>
+    <body>
+        <div class="body-container">
+            <nav class="navbar navbar-expand-lg ">
+                <a class="navbar-brand" href="#">Network</a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+          
+                 
+
+                  
+                  <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                  <ul class="navbar-nav mr-auto">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="username"><strong>{{ user.username }}</strong></a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'index' %}">All Posts</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a id="following-btn" class="nav-link" href="{% url 'following' %}">Following</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                        </li>
+                    {% endif %}
+                    
+                  </ul>
+                </div>
+              </nav>
+            
+            <div class="content">
+                <div class="container-fluid subheader-container">
+                    <div class="row subheader-row">
+                        <div class="col-lg-12">
+                            <div class="d-flex align-items-center bd-highlight mb-3 subheader-flex">
+                                <a>All posts.</a>
+                                
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="container-fluid index-container ">
+                    <div class="row">
+                        <div class="col-lg-1 left-panel">
+                                  <div class="top-options-div">
+                                    <i class="fas fa-user-friends"></i>
+                                    <!-- <a  href="https://www.google.com" class="opt-txt">Followers</a> -->
+                                </div>
+                                <div  class="top-options-div">
+                                    <i class="fas fa-bookmark"></i>
+                                    <!-- <a href="https://www.google.com"  class="opt-txt">Saved tweets</a> -->
+                                </div>
+                                    
+                                    <div class="user-settings">
+                                        <div class="bottom-options top-options-div">
+                                            <i class="fas fa-cogs"></i>
+                                            <!-- <span class="opt-txt">Settings</span> -->
+                                        </div>
+                                        
+                                    </div>
+                      
+                        </div>
+
+                        <div class="col-lg-7">
+                            <div class="tweet-context">
+                                {% block body %}
+                                {% endblock %}
+                            </div>
+                            <div class="profile-context">
+                                {% block profile %}
+                                {% endblock %}
+                            </div>
+                            <div class="following-context">
+                                {% block following %}
+                                {% endblock %}
+                            </div>
+                            
+                        
+                        </div>
+                        
+                        
+                        
+                
+                
+                    <div class="col-lg-3">
+                        <h4>Analysis</h4>
+                        <div class="graphs">
+                            <div class="follower-graph">
+                                <h6>Followers Data</h6>
+                                <img src="https://chart-studio.plotly.com/~ashish.baghudana/49.png" width="300px" alt="">
+                            </div>
+                            <div class="tweet-graph">
+                                <h6>Tweets Data</h6>
+                                <img src="https://www.accentsconagua.com/img/images_4/create-interactive-charts-using-plotlyjs-part-3-bar-charts.png" width="300px" alt="">
+                            </div>
+                            
+                        </div>
+                    </div>
+                
+                    
+                
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+        <script src="{% static 'network/layout.js' %}"></script>
+        
+    </body>
+</html>
