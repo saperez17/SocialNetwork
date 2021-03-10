@@ -6,7 +6,10 @@ $.extend({
     }
 });
  //Constants
- const username = document.querySelector("#username").text;
+ var usernameElmn = document.querySelector("#username");
+ if (usernameElmn!=null){
+    const username = usernameElmn.text;
+ }
 // Detect and create new tweet
 $("#new_tweet_btn").on("click", ()=>{postTweet();});
 
@@ -44,7 +47,10 @@ function getTweetPage(number){
         },
         success: function(result){
             current_page_count = result[2];
-            addTweetDOM(result[0], result[1]);
+            if (result["message"] != "User not found"){
+                addTweetDOM(result[0], result[1]);
+            }
+            
         }, 
         failure: function(){
 
@@ -120,7 +126,7 @@ function postTweet(){
             },
             failure: function(data){
                 console.log("failure");
-                console.log(data);
+                // console.log(data);
             },
         })
     }else{
@@ -142,7 +148,7 @@ function addTweetDOM(tweets, liked_pk){
         // Username photo
         var user_photo = document.createElement('span');
         user_photo.setAttribute("class", "far fa-user fa-2x tweet-icon")
-        console.log(tweets[i]);
+        // console.log(tweets[i]);
         // Username text and tweet content
         var name_date_container = document.createElement("div");
         name_date_container.setAttribute("class", "d-flex align-items-center bd-highlight mb-3 subheader-flex");
